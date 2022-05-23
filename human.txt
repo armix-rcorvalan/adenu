@@ -1,0 +1,14 @@
+X 1. Home
+% 2. Landing Genérica (Ajax)
+% 3. Landing Programa
+X 4. Blog/Category
+X 5. Blog Single
+X 6. Eventos
+X 7. Eventos Single
+X 8. Noticias/Category
+X 9. Noticias Single
+X 10. Revista estudiantil
+X 11. Revista estudiantil single
+X 12. Decanatura Grados y Posgrados
+X 13. Decanatura Posgrados y Decanatura Grado Single.
+  14. Convenios Internacionales
