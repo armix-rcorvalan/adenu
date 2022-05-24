@@ -5,58 +5,53 @@
  * @package ARMIX
  */
 
+global $template;
+$template_file = basename( $template );
+
 // Archive Decanaturas
-if ( is_post_type_archive( 'decanaturas' ) ) 
+if ( 'archive-decanaturas.php' === $template_file ) 
 {
-	$cover_title   = 'Decanaturas';
-	$cover_image_s = get_field( 'decanaturas_image_s', 'option' );
-	$cover_image_l = get_field( 'decanaturas_image_l', 'option' );
+	$cover_title = ( ! isset( $_GET['s'] ) ) ? '' : 'Resultados de búsqueda';
+	// BUG: En los que son archives no anda get_field() 
+	$cover_image_s = wp_get_attachment_image_url( get_field( 'decanaturas_image_s', 'option' ), 'full' );
+	$cover_image_l = wp_get_attachment_image_url( get_field( 'decanaturas_image_l', 'option' ), 'full' );
+	echo 'AAA: archive | decanaturas <br>';
 }
-// Single Decanaturas
-else if ( is_singular( 'decanaturas' ) )
-{
-	$group         = get_field( 'cover' );
-	$cover_title   = get_the_title();
-	$cover_image_s = $group['image_s'];
-	$cover_image_l = $group['image_l'];
-}
-// Archive Blog
-else if ( is_post_type_archive( 'blog' ) ) 
-{
-	$cover_title   = 'Blog ADENU';
-	$cover_image_s = get_field( 'blog_image_s', 'option' );
-	$cover_image_l = get_field( 'blog_image_l', 'option' );
-}
-// Tax Blog Categoria
-else if ( is_taxonomy( 'blog-categoria' ) ) 
+// Archive Tax Blog Categoria
+if ( 'taxonomy-blog-categoria.php' === $template_file ) 
 {
 	$term          = get_queried_object();
 	$cover_title   = $term->name;
 	$cover_image_s = get_field( 'blog_categoria_image_s', $term->taxonomy . '_' . $term->term_id );
 	$cover_image_l = get_field( 'blog_categoria_image_l', $term->taxonomy . '_' . $term->term_id );
+	echo 'AAA: archive | blog-categoria <br>';
 }
-// Tax Post Category
-else if ( is_category() ) 
+// Archive Tax Post Category
+if ( 'category.php' === $template_file ) 
 {
 	$term          = get_queried_object();
 	$cover_title   = $term->name;
 	$cover_image_s = get_field( 'category_image_s', $term->taxonomy . '_' . $term->term_id );
 	$cover_image_l = get_field( 'category_image_l', $term->taxonomy . '_' . $term->term_id );
+	echo 'AAA: archive | category <br>';
 } 
-// Archive Posts
-else if ( is_home() || is_category() )
+// Single Decanaturas
+if ( 'single-decanaturas.php' === $template_file )
 {
-	$cover_title   = 'Noticias ADENU';
-	$cover_image_s = get_field( 'posts_image_s', 'option' );
-	$cover_image_l = get_field( 'posts_image_l', 'option' );
+	$group         = get_field( 'cover' );
+	$cover_title   = get_the_title();
+	$cover_image_s = $group['image_s'];
+	$cover_image_l = $group['image_l'];
+	echo 'AAA: single | decanaturas <br>';
 }
 // Archive Posts
-else if ( is_page_template( 'template-modules.php' ) )
+if ( 'template-modules.php' === $template_file )
 {
 	$group         = get_sub_field( '03_cover' );
 	$cover_title   = $group['title'];
 	$cover_image_s = $group['image_s'];
 	$cover_image_l = $group['image_l'];
+	echo 'AAA: single | modules <br>';
 }
 
 ?>
