@@ -15,7 +15,6 @@ if ( 'archive-decanaturas.php' === $template_file )
 	// BUG: En los que son archives no anda get_field() 
 	$cover_image_s = wp_get_attachment_image_url( get_field( 'decanaturas_image_s', 'option' ), 'full' );
 	$cover_image_l = wp_get_attachment_image_url( get_field( 'decanaturas_image_l', 'option' ), 'full' );
-	echo 'AAA: archive | decanaturas <br>';
 }
 // Archive Tax Blog Categoria
 if ( 'taxonomy-blog-categoria.php' === $template_file ) 
@@ -24,7 +23,6 @@ if ( 'taxonomy-blog-categoria.php' === $template_file )
 	$cover_title   = $term->name;
 	$cover_image_s = get_field( 'blog_categoria_image_s', $term->taxonomy . '_' . $term->term_id );
 	$cover_image_l = get_field( 'blog_categoria_image_l', $term->taxonomy . '_' . $term->term_id );
-	echo 'AAA: archive | blog-categoria <br>';
 }
 // Archive Tax Post Category
 if ( 'category.php' === $template_file ) 
@@ -33,7 +31,6 @@ if ( 'category.php' === $template_file )
 	$cover_title   = $term->name;
 	$cover_image_s = get_field( 'category_image_s', $term->taxonomy . '_' . $term->term_id );
 	$cover_image_l = get_field( 'category_image_l', $term->taxonomy . '_' . $term->term_id );
-	echo 'AAA: archive | category <br>';
 } 
 // Single Decanaturas
 if ( 'single-decanaturas.php' === $template_file )
@@ -42,7 +39,6 @@ if ( 'single-decanaturas.php' === $template_file )
 	$cover_title   = get_the_title();
 	$cover_image_s = $group['image_s'];
 	$cover_image_l = $group['image_l'];
-	echo 'AAA: single | decanaturas <br>';
 }
 // Archive Posts
 if ( 'template-modules.php' === $template_file )
@@ -51,7 +47,6 @@ if ( 'template-modules.php' === $template_file )
 	$cover_title   = $group['title'];
 	$cover_image_s = $group['image_s'];
 	$cover_image_l = $group['image_l'];
-	echo 'AAA: single | modules <br>';
 }
 
 ?>
