@@ -13,8 +13,8 @@ if ( 'archive-decanaturas.php' === $template_file )
 {
 	$cover_title = ( ! isset( $_GET['s'] ) ) ? '' : 'Resultados de búsqueda';
 	// BUG: En los que son archives no anda get_field() 
-	$cover_image_s = wp_get_attachment_image_url( get_field( 'decanaturas_image_s', 'option' ), 'full' );
-	$cover_image_l = wp_get_attachment_image_url( get_field( 'decanaturas_image_l', 'option' ), 'full' );
+	$cover_image_s = wp_get_attachment_image_url( get_option( 'options_decanaturas_cover_image_s' ), 'full' );
+	$cover_image_l = wp_get_attachment_image_url( get_option( 'options_decanaturas_cover_image_l' ), 'full' );
 }
 // Archive Tax Blog Categoria
 if ( 'taxonomy-blog-categoria.php' === $template_file ) 

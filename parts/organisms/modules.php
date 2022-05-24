@@ -23,6 +23,7 @@ if ( have_rows( 'modules' ) )
 		if ( get_row_layout() == '08_counter' ) require TD . '/parts/organisms/08-counter.php';
 		if ( get_row_layout() == '32_slider_image_text' ) require TD . '/parts/organisms/32-slider-image-text.php';
 		if ( get_row_layout() == '33_decanaturas_list' ) require TD . '/parts/organisms/33-decanaturas-list.php';
+		if ( get_row_layout() == '40_tabs' ) require TD . '/parts/organisms/40-tabs.php';
 
 		$module_count++;
 	}
