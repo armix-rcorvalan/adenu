@@ -25,9 +25,9 @@ function armix_decanaturas_pre_get_posts( $query )
 
     	if ( $get_data ) {
 
-    		if ( isset( $get_data['s'] ) && ! empty( $get_data['s'] ) )
+    		if ( isset( $get_data['ds'] ) && ! empty( $get_data['ds'] ) )
     		{
-    			$args['s'] = $get_data['s'];
+    			$args['s'] = $get_data['ds'];
     		}
 
     		if ( isset( $get_data['carreras'] ) && ! empty( $get_data['carreras'] ) )

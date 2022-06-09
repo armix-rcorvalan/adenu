@@ -28,7 +28,7 @@ $get_data = filter_input_array( INPUT_GET );
 			<form action="<?php echo esc_url( get_post_type_archive_link( 'decanaturas' ) ); ?>" class="02-decanaturas-search__form" method="get">
 				
 				<div class="02-decanaturas-search__form-group">
-					<input type="search" name="s" value="<?php echo ( $get_data['s'] ) ? $get_data['s'] : ''; ?>" class="02-decanaturas-search__form-input 02-decanaturas-search__form-input--search" placeholder="Ej: Marketing" />
+					<input type="search" name="ds" value="<?php echo ( $get_data['ds'] ) ? $get_data['ds'] : ''; ?>" class="02-decanaturas-search__form-input 02-decanaturas-search__form-input--search" placeholder="Ej: Marketing" />
 				</div>
 
 				<div class="02-decanaturas-search__form-group">

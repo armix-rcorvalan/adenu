@@ -9,6 +9,14 @@ global $template;
 $template_file = basename( $template );
 
 // Archive Decanaturas
+if ( 'search.php' === $template_file ) 
+{
+	$cover_title = ( ! isset( $_GET['s'] ) ) ? '' : 'Resultados de búsqueda';
+	// BUG: En los que son archives no anda get_field() 
+	$cover_image_s = wp_get_attachment_image_url( get_option( 'options_search_cover_image_s' ), 'full' );
+	$cover_image_l = wp_get_attachment_image_url( get_option( 'options_search_cover_image_l' ), 'full' );
+}
+// Archive Decanaturas
 if ( 'archive-decanaturas.php' === $template_file ) 
 {
 	$cover_title = ( ! isset( $_GET['s'] ) ) ? '' : 'Resultados de búsqueda';
@@ -34,6 +42,14 @@ if ( 'category.php' === $template_file )
 } 
 // Single Decanaturas
 if ( 'single-decanaturas.php' === $template_file )
+{
+	$group         = get_field( 'cover' );
+	$cover_title   = get_the_title();
+	$cover_image_s = $group['image_s'];
+	$cover_image_l = $group['image_l'];
+}
+// Single LP
+if ( 'single-lp.php' === $template_file )
 {
 	$group         = get_field( 'cover' );
 	$cover_title   = get_the_title();

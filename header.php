@@ -22,6 +22,12 @@
 <?php
 global $template;
 echo basename($template);
+
+$social_links = new ARMIX\Social_Links();
+$social_links_array = $social_links->get_array();
+
+get_search_form();
+
 ?>
 
 <?php include TD . '/parts/organisms/header.php'; ?>
